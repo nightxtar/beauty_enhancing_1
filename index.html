@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beauty Enhance App - Redefine Your Beauty</title>
+  <style>
+    /* Basic reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Body styling */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #333;
+      background-color: #f4f4f9;
+      overflow-x: hidden;
+    }
+
+    /* Hero section */
+    .hero {
+      background: linear-gradient(135deg, #ff6a6a, #ffce3d);
+      color: #fff;
+      padding: 80px 20px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      animation: fadeIn 1s ease;
+    }
+
+    .hero h1 {
+      font-size: 40px;
+      margin-bottom: 15px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .hero p {
+      font-size: 18px;
+      margin-bottom: 20px;
+      line-height: 1.5;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Download section with icon */
+    .download-section {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .app-icon {
+      width: 100px;
+      height: 100px;
+    }
+
+    .download-btn {
+      background-color: #ff5a5f;
+      color: #fff;
+      border: none;
+      padding: 14px 28px;
+      font-size: 18px;
+      border-radius: 30px;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      transition: background-color 0.3s, transform 0.3s;
+      animation: pulse 1.5s infinite;
+    }
+
+    .download-btn:hover {
+      background-color: #ff3b3f;
+      transform: scale(1.05);
+    }
+
+    /* Features section */
+    .features {
+      padding: 40px 20px;
+      background-color: #fff;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+      animation: fadeInUp 1s ease;
+    }
+
+    .features h2 {
+      font-size: 32px;
+      color: #ff5a5f;
+      margin-bottom: 20px;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    }
+
+    .features-container {
+      display: grid;
+      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .feature-item {
+      background-color: #f9f9f9;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .feature-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .feature-item h3 {
+      color: #ff5a5f;
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .feature-item p {
+      font-size: 16px;
+      color: #666;
+      line-height: 1.6;
+    }
+
+    /* Testimonials section */
+    .testimonials {
+      padding: 40px 20px;
+      background-color: #f7f7f7;
+      text-align: center;
+      animation: fadeInUp 1s ease;
+    }
+
+    .testimonials h2 {
+      font-size: 32px;
+      color: #333;
+      margin-bottom: 20px;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    }
+
+    .testimonial-item {
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      font-size: 16px;
+      animation: fadeIn 1s ease;
+    }
+
+    .testimonial-author {
+      font-weight: bold;
+      color: #ff5a5f;
+      margin-top: 10px;
+    }
+
+    /* Call to Action section */
+    .cta {
+      background-color: #ff5a5f;
+      color: #fff;
+      padding: 50px 20px;
+      text-align: center;
+      position: relative;
+      animation: fadeInUp 1s ease;
+    }
+
+    .cta h2 {
+      font-size: 32px;
+      margin-bottom: 15px;
+    }
+
+    .cta p {
+      font-size: 18px;
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    /* Footer */
+    .footer {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .footer p {
+      font-size: 14px;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    /* Responsive Design */
+    @media only screen and (max-width: 600px) {
+      .hero h1 { font-size: 28px; }
+      .hero p, .cta p { font-size: 16px; }
+      .cta h2, .features h2, .testimonials h2 { font-size: 24px; }
+      .feature-item h3 { font-size: 20px; }
+      .download-btn { font-size: 16px; padding: 12px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero Section -->
+  <div class="hero">
+    <h1>Beauty Enhance App</h1>
+    <p>Unleash the power of AI beauty enhancements, crafted especially for women. Transform your selfies with professional filters and tools designed to elevate your natural beauty.</p>
+    <div class="download-section">
+      <img src="icon.jpg" alt="App Icon" class="app-icon"  style="border-radius: 100%;"> <!-- Ensure this path is correct -->
+      <a href="javascript:void(0)" class="download-btn" onclick="downloadApp()">Download for Android</a>
+    </div>
+    <p id="not-android" style="display: none; color: #ffebee;">This app is only available for Android devices.</p>
+  </div>
+
+  <!-- Features Section -->
+  <div class="features">
+    <h2>Our Premium Features</h2>
+    <div class="features-container">
+      <div class="feature-item">
+        <h3>AI-Powered Skin Smoothing</h3>
+        <p>Achieve flawless skin with advanced smoothing that preserves natural texture, leaving you with radiant results.</p>
+      </div>
+      <div class="feature-item">
+        <h3>Realistic Makeup Filters</h3>
+        <p>Virtually apply makeup with our customizable filters that enhance your features for a natural look.</p>
+      </div>
+      <div class="feature-item">
+        <h3>Face Reshaping</h3>
+        <p>Enhance your natural beauty with subtle reshaping options tailored to your unique features.</p>
+      </div>
+      <div class="feature-item">
+        <h3>Creative Photo Filters</h3>
+        <p>Choose from a stunning array of filters to give your photos a personal touch that matches your style.</p>
+      </div>
+      <div class="feature-item">
+        <h3>Background Blur</h3>
+        <p>Add a sophisticated bokeh effect to make you the focal point of any image effortlessly.</p>
+      </div>
+      <div class="feature-item">
+        <h3>Easy-to-Use Interface</h3>
+        <p>Our intuitive design means you can enhance your beauty in seconds without any prior editing experience.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Testimonials Section -->
+  <div class="testimonials">
+    <h2>What Our Users Say</h2>
+    <div class="testimonial-item">
+      <p>"The filters are stunning, and it's so easy to use! My photos have never looked better!"</p>
+      <div class="testimonial-author">- Sarah L.</div>
+    </div>
+    <div class="testimonial-item">
+      <p>"Perfect for boosting my confidence before posting pics online. I love this app!"</p>
+      <div class="testimonial-author">- Emily T.</div>
+    </div>
+    <div class="testimonial-item">
+      <p>"The face reshaping feature is a game changer! I can't imagine my selfies without it."</p>
+      <div class="testimonial-author">- Maya W.</div>
+    </div>
+  </div>
+
+  <!-- Call to Action Section -->
+  <div class="cta">
+    <h2>Join the Beauty Revolution!</h2>
+    <p>Unlock your beauty potential with our powerful tools designed specifically for you.</p>
+    <div class="download-section">
+      <img src="app-icon.png" alt="App Icon" class="app-icon">
+      <a href="javascript:void(0)" class="download-btn" onclick="downloadApp()">Download for Android</a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <p>© 2024 Beauty Enhance App | All Rights Reserved</p>
+  </div>
+
+  <script>
+    // Check if the device is Android
+    function isAndroidDevice() {
+      return /Android/i.test(navigator.userAgent);
+    }
+
+    // Handle download button click
+    function downloadApp() {
+      if (isAndroidDevice()) {
+        window.location.href = "path/to/your/app.apk"; // Replace with your APK URL
+      } else {
+        document.getElementById('not-android').style.display = 'block';
+      }
+    }
+
+    // On page load, disable download button for non-Android users
+    window.onload = function() {
+      if (!isAndroidDevice()) {
+        document.querySelector('.download-btn').disabled = true;
+      }
+    }
+  </script>
+
+</body>
+</html>
